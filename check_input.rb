@@ -1,24 +1,27 @@
-require "pry"
-require_relative "casino"
+require 'pry'
 
 class CheckInput
-  def check_input(player, inp)
-    inp = inp.downcase
 
+  def initialize(inp)
+    begin
+      inp = inp.downcase
+    rescue
+    end
+    
     if inp.empty?
-      puts "Entry was empty."
+      puts 'Entry was empty.'
     end
 
-    case inp
-    when "quit", "q"
+    case inp.to_s
+    when 'quit', 'q'
+      puts 'Quitting'
       exit
-    when "menu", "m"
-      casino.menu
-    when "switch", "s"
-    when "wallet", "w"
-      player.player.wallet.amount
+    when 'menu', 'm'
+      #casino.menu
+    when 'switch', 's'
+    when 'wallet', 'w'
+      #casino.player.wallet.amount
 
     end
-
   end
 end

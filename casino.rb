@@ -3,6 +3,7 @@ require 'colorize'
 
 require_relative 'player'
 require_relative 'check_input'
+require_relative 'heads_tails'
 
 
 class Casino
@@ -13,15 +14,16 @@ class Casino
     @player = Player.new
   end
 
-  def casino_menu
-    #casino options
-    #game options
-    #bankroll - player status
-    #quit
-    #HeadsTails.new(@player)
-  end
-
 =begin
+  def casino_menu
+    casino options
+    game options
+    bankroll - player status
+    quit
+    HeadsTails.new(@player)
+  end
+=end
+
   def main_menu
     puts "What would you like to do?
       1: Heads and Tails
@@ -29,18 +31,19 @@ class Casino
       3: War
       4: Slots
       "
-    case gets.strip
-    when "1"
+    case gets.strip.to_i
+    when 1
+      puts "Going to Heads and Tails"
       HeadsTails.new(@player)
-    when "2"
+    when 2
       Roullette.new(@player)
-    when "3"
+    when 3
       navigateTo Module
-    when "4"
+    when 4
       navigateTo Module
     end
   end
-=end
+
 
   def check_wallet(bet)
     if bet > @player.wallet.amount
@@ -50,4 +53,5 @@ class Casino
 end
 
 player1 = Casino.new
-binding.pry
+player1.main_menu
+#binding.pry
