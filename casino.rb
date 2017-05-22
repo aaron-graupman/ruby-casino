@@ -13,6 +13,14 @@ class Casino
     @player = Player.new
     binding.pry
   end
+
+  def casino_menu
+    #casino options
+    #game options
+    #bankroll - player status
+    #quit
+    HeadsTails.new(player)
+  end
 end
 
 Casino.new
