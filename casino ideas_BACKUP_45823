@@ -5,9 +5,12 @@ Craps - requires probability
 Slots - .sample
 Black Jack - .sample + multiple ace value
 Heads/Tails - in progress
+<<<<<<< HEAD
 Roulette -
 War
+=======
 Roulette - http://www.wikihow.com/Play-Roulette
+>>>>>>> update heads/tails
 
 
 functionality ideas
