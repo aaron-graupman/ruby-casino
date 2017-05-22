@@ -4,7 +4,7 @@ Texas - requires hand strength comparison
 Craps - requires probability
 Slots - .sample
 Black Jack - .sample + multiple ace value
-Heads/Tails - in progress
+Heads/Tails - proto2 complete, waiting on mm functionality before initial testing
 Roulette -
 War
 Roulette - http://www.wikihow.com/Play-Roulette
