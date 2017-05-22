@@ -15,6 +15,10 @@ def coin_toss_menu
   puts 'Press 3 to leave the casino.\n'
 end
 
+def ct_win
+  player.wallet.amount += ctb_input
+
+
 def coin_toss
   puts '\nHeads or Tails?'
   ct_input = gets.strip.downcase
@@ -30,8 +34,10 @@ def coin_toss
       ct_win
     else
       puts '\nYou lose sucker!'
+      player.wallet.amount -= ctb_input
       coin_toss_menu
     end
+end
 
 while true
   coin_toss_menu
