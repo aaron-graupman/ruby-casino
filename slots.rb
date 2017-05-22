@@ -7,8 +7,10 @@ require_relative 'check_input'
 @spin_2
 @spin_3
 
-def initialize(player) 
+def initialize(player)
 end
+
+def play_slot
 
 def slot_menu
   puts "\nWelcome to Slots"
