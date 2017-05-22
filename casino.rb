@@ -19,8 +19,9 @@ class Casino
     #game options
     #bankroll - player status
     #quit
-    HeadsTails.new(player)
+    HeadsTails.new(@player)
+
   end
 end
 
-Casino.new
+casino = Casino.new
