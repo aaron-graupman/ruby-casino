@@ -1,4 +1,8 @@
+require 'pry'
+
+require_relative 'casino'
 require_relative 'check_input'
+
 @ct = ['heads', 'tails']
 @ctb_input = 0.0
 
@@ -10,13 +14,14 @@ class HeadsTails
 end
 
 def coin_toss_menu
-  puts 'Press 1 to play. A winning bet pays 1 to 1.'
-  puts 'Press 2 to return to the main menu.'
-  puts 'Press 3 to leave the casino.\n'
+  puts 'Press "p" to play. A winning bet pays 1 to 1.'
+  puts 'Press "s" to switch current player'
+  puts 'Press "m" return to the main menu.'
+  puts 'Press "q" to leave the casino.\n'
 end
 
 def ct_win
-  player.wallet.amount += ctb_input
+  player.wallet.amount += @ctb_input
 
 
 def coin_toss
@@ -34,21 +39,21 @@ def coin_toss
       ct_win
     else
       puts '\nYou lose sucker!'
-      player.wallet.amount -= ctb_input
+      player.wallet.amount -= @ctb_input
       coin_toss_menu
     end
 end
 
 while true
   coin_toss_menu
-  ctm_input = gets.to_i
+  ctm_input = gets.strip.downcase
   puts
     case ctm_input
-      when 1
+    when 'p'
         puts 'How much money would you like to bet (Ex. 5.50)?\n'
         @ctb_input = gets.to_f
-        coin_toss_bet
+        coin_toss
       else
-        CheckInput.new(ctm_input)
+        CheckInput.new(player, ctm_input)
     end
 end
