@@ -3,11 +3,9 @@ require 'pry'
 require_relative 'check_input'
 
 class HeadsTails
-  @ct = ['heads', 'tails']
-  binding.pry
-  @ctb_input = 0.0
-
   def initialize(player)
+    @ct = ['heads', 'tails']
+    @ctb_input = 0.0
     puts "\nWelcome to Heads or Tails\n"
     puts "#{player.name}, you have a balance of #{player.wallet.amount}\n"
 
@@ -47,7 +45,6 @@ class HeadsTails
       puts "\nInvalid selection, try again when you are sober."
       coin_toss
     end
-
     ct_result = @ct.sample
     puts "\nIt's" + ct_result
 
