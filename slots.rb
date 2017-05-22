@@ -11,6 +11,8 @@ def initialize(player)
 end
 
 def play_slot
+  
+end
 
 def slot_menu
   puts "\nWelcome to Slots"
