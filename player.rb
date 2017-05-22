@@ -9,7 +9,7 @@ class Player
     puts 'What is your age?'
     @age = gets.strip.to_i
     puts 'How much money are you playing with?'
-    amount = gets
+    amount = gets.strip.to_f
     @wallet = Wallet.new(amount)
   end
 

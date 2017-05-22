@@ -8,7 +8,7 @@ class RoulletteSpin
   end
 
   def spin
-   @spin = rand(12)
+   @spin = rand(13)
   end
 
   def color

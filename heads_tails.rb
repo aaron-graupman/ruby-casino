@@ -6,6 +6,7 @@ class HeadsTails
   def initialize(player)
     @ct = ['heads', 'tails']
     @ctb_input = 0.0
+    @player = player
     puts "\nWelcome to Heads or Tails\n"
     puts "#{player.name}, you have a balance of #{player.wallet.amount}\n"
 
@@ -33,7 +34,8 @@ class HeadsTails
   end
 
   def ct_win
-    player.wallet.amount += @ctb_input
+    @player.wallet.amount += @ctb_input.to_f
+    #FINISH RETURN LOOP!!!
   end
 
   def coin_toss
@@ -46,15 +48,14 @@ class HeadsTails
       coin_toss
     end
     ct_result = @ct.sample
-    puts "\nIt's" + ct_result
+    puts "\nIt's " + ct_result
 
-    if ct_input = ct_result
+    if ct_input == ct_result
       puts "\nYou win"
       ct_win
     else
       puts "\nYou lose sucker!"
-      player.wallet.amount -= @ctb_input
-      coin_toss_menu
+      @player.wallet.amount -= @ctb_input.to_f
     end
   end
 
