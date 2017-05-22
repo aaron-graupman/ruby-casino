@@ -2,7 +2,7 @@ require "pry"
 require_relative "casino"
 
 class CheckInput
-  def check_input(inp)
+  def check_input(player, inp)
     inp = inp.downcase
 
     if inp.empty?
@@ -10,12 +10,14 @@ class CheckInput
     end
 
     case inp
-    when "quit", "q", 3
+    when "quit", "q"
       exit
-    when "menu", 2
+    when "menu", "m"
       casino.menu
-    else
-      puts "Invalid input."
+    when "switch", "s"
+    when "wallet", "w"
+      player.player.wallet.amount
+
     end
 
   end
