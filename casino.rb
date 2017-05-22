@@ -18,8 +18,9 @@ class Casino
     #game options
     #bankroll - player status
     #quit
-    HeadsTails.new(@player)
+    #HeadsTails.new(@player)
   end
+
 =begin
   def main_menu
     puts "What would you like to do?
@@ -40,6 +41,7 @@ class Casino
     end
   end
 =end
+
   def check_wallet(bet)
     if bet > @player.wallet.amount
     end
@@ -48,3 +50,4 @@ class Casino
 end
 
 player1 = Casino.new
+binding.pry
