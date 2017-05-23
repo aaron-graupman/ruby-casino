@@ -9,6 +9,8 @@ class MainMenu
       2: Roulette
       3: War
       4: Slots
+      5: Black Jack
+      6: Se7en
       "
     input = gets.strip.to_i
     CheckInput.new(input)
@@ -26,6 +28,9 @@ class MainMenu
       puts 'Going to Slots.'
       Slots.new(@player)
     when 5
+      puts 'Going to Black Jack.'
+      Blackjack.new(@player)
+    when 6
       puts 'Going to Se7en.'
       Dice.new(@player)
     end
