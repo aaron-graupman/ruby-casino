@@ -1,5 +1,3 @@
-require_relative 'check_input'
-
 class MainMenu
 
   def initialize(player)
