@@ -22,4 +22,3 @@ end
 player1 = Casino.new
 MainMenu.new(player1.player)
 #binding.pry
- 
