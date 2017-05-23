@@ -8,7 +8,7 @@ class HeadsTails
     @ctb_input = 0.0
     @player = player
     puts "\nWelcome to Heads or Tails\n"
-    puts "#{player.name}, you have a balance of #{player.wallet.amount}\n"
+    puts "#{player.name}, you have a balance of #{player.wallet.amount}0\n"
 
     while true
       coin_toss_menu

@@ -7,7 +7,7 @@ class CheckInput
       inp = inp.downcase
     rescue
     end
-    
+
     if inp.empty?
       puts 'Entry was empty.'
     end
