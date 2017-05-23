@@ -22,8 +22,8 @@ class RoulletteSpin
     end
   end
 
-  def show_dice
-    print "Spin: ", @spin
+  def show_spin
+    print "Spin: ", @spin @color
   end
 
 end
