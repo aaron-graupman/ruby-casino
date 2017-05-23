@@ -25,6 +25,9 @@ class MainMenu
     when 4
       puts 'Going to Slots.'
       Slots.new(@player)
+    when 5
+      puts 'Going to Se7en.'
+      Dice.new(@player)
     end
   end
 end
