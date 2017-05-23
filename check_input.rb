@@ -1,8 +1,3 @@
-require 'pry'
-require 'colorize'
-require_relative 'main_menu'
-
-
 class CheckInput
 
   def initialize(inp, player=nil)

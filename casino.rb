@@ -14,7 +14,7 @@ class Casino
   attr_accessor :player
 
   def initialize
-    puts 'Welcome to Ruby Casino'
+    puts 'Welcome to Ruby Casino'.magenta
     @player = Player.new
   end
 
