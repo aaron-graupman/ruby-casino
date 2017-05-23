@@ -35,7 +35,7 @@ class HeadsTails
 
   def ct_win
     @player.wallet.amount += @ctb_input.to_f
-    #FINISH RETURN LOOP!!!
+    coin_toss_menu #just looped it back to heads/tails menu, test to verify working condition
   end
 
   def coin_toss
