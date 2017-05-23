@@ -6,7 +6,6 @@ require_relative 'check_input'
 class Dice
  def initialize(player)
    @player = player
-   @roll = @die1 + @die2
    @sb_input = 0.0
 
    puts "\nWelcome to Se7en\n"
@@ -35,18 +34,18 @@ def se7en_menu
   puts "Press \"q\" to leave the casino.\n"
 end
 
+def bet_on
+  puts 'Press 1 to bet on 7, pays 7 to 1.'
+  puts 'Press 2 to bet on 6 and 8, pays 4 to 1.'
+  puts "Press 3 to bet on 2 and 12, pays 18 to 1.\n"
+  @bo_input = gets.to_i
+end
 
-#
-# def bet_on
-#   puts 'Press 1 to bet on 7, pays 7 to 1.'
-#   puts 'Press 2 to bet on 6 and 8, pays 4 to 1.'
-#   puts "Press 3 to bet on 2 and 12, pays 18 to 1.\n"
-# end
-
-# def roll
-#   @die1 = 1 + rand(5)
-#   @die2 = 1 + rand(5)
-# end
+def roll
+  @die1 = (1 + rand(5)
+  @die2 = 1 + rand(5)
+@roll = @die1 + @die2
+end
 
 # def show_dice
 #  print "Die1: ", @die1, " Die2:", @die2
