@@ -5,7 +5,8 @@ require_relative 'player'
 require_relative 'check_input'
 require_relative 'heads_tails'
 require_relative 'war'
-
+require_relative 'routlette'
+require_relative 'slots'
 
 class Casino
   attr_accessor :player
@@ -20,17 +21,21 @@ class Casino
       1: Heads and Tails
       2: Roullette
       3: War
-      4: Slots
+      4: Slotss
       "
     case gets.strip.to_i
     when 1
-      puts "Going to Heads and Tails"
+      puts "Going to Heads or Tails."
       HeadsTails.new(@player)
     when 2
+      puts 'Going to Roulette.'
       Roullette.new(@player)
     when 3
+      puts 'Going to War.'
       War.new(@player)
     when 4
+      puts 'Going to Slots.'
+      Slots.new(@player)
     end
   end
 

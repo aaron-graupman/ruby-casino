@@ -91,7 +91,7 @@ def play_slot
   puts result_3 "\n"
 
   case calc_earnings
-    if result_2 == result_1 || result_3 #if spin 2 is the same as spins 1 or 3, pays out
+    if result_2 == result_1 || result_2 == result_3 #if spin 2 is the same as spins 1 or 3, pays out
       then @player.wallet.amount += 2.0
       puts "\nYou won $2!"
     if result_1 == ('Bar' || 'Double Bar' || 'Triple Bar') #if all three spins are any combo of any bar results, pays out
