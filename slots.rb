@@ -5,6 +5,7 @@ require_relative 'check_input'
 
 class Slots
   def initialize(player)
+    @player = player
     @spin_1 = 40 #1 + rand(55)
     @spin_2 = 40 #1 + rand(55)
     @spin_3 = 40 #1 + rand(55)
@@ -77,8 +78,8 @@ def play_slot
     result_3 = 'Red 7'
   elsif @spin_3 == 55 || @spin_3 == 56
     result_3 = 'JACKPOT'
-  end
-  binding.pry
+
+  #binding.pry
 # shows spin results with delay using the sleep function
   puts "\nDetermining your results...\n"
   sleep 2
@@ -88,11 +89,8 @@ def play_slot
   puts result_2 "\n"
   sleep 2
   puts result_3 "\n"
-
-
-    if result_2 == result_1 || result_2 == result_3 #if spin 2 is the same as spins 1 or 3, pays out
-      then @player.wallet.amount += 2.0
-  #case calc_earnings
+  end
+  
     if result_2 == result_1 || result_2 == result_3 #if spin 2 is the same as spins 1 or 3, pays out
        @player.wallet.amount += 2.0
       puts "\nYou won $2!"
@@ -117,6 +115,5 @@ def play_slot
        @player.wallet.amount -= 1.0 #if no winning results are spun, bet deducted from wallet
       puts "\nYou lose! Go get a real job you bum."
     end
-  end #end case
  end
 end

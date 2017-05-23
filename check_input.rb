@@ -1,29 +1,29 @@
 require 'pry'
+require 'colorize'
 require_relative 'main_menu'
-require_relative 'player'
+
 
 class CheckInput
 
-  def initialize(inp, player)
+  def initialize(inp, player=nil)
     begin
       inp = inp.downcase
-    rescue
-    end
 
-    if inp.empty?
-      puts 'Entry was empty.'
+      if inp.empty?
+        puts 'Entry was empty.'
+      end
+    rescue
     end
 
     case inp.to_s
     when 'quit', 'q'
-      puts 'Quitting'
+      puts 'Quitting, thank you come again.'.cyan
       exit
     when 'menu', 'm'
       MainMenu.new(player)
     when 'switch', 's'
     when 'wallet', 'w'
-      @player.check_wallet
-
+      player.check_wallet
     end
   end
 end

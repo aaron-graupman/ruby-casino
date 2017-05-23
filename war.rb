@@ -1,4 +1,5 @@
 require 'pry'
+require 'colorize'
 require_relative 'check_input'
 require_relative 'deck'
 
@@ -8,7 +9,6 @@ class War
     @deck = Deck.new
     @player = player
     puts "\nWelcome to WAR\n"
-    puts "#{@player.name}, you have a balance of \$#{@player.wallet.amount}0\n"
     get_inputs
   end
 
@@ -17,13 +17,16 @@ class War
     @dealer_deal = @deck.cards[rand(52)]
     @player_val = @player_deal.rate.to_i
     @dealer_val = @dealer_deal.rate.to_i
+    war_play
   end
 
   def war_menu
-    puts 'Press "p" to play. A winning bet pays 1 to 1.'
-    puts 'Press "s" to switch current player'
-    puts 'Press "m" return to the main menu.'
-    puts "Press \"q\" to leave the casino.\n"
+    puts "\nPress \"p\" to play. A winning bet pays 1 to 1."
+    puts 'Press "w" to view your wallet.'
+    puts 'Press "s" to switch profiles.'
+    puts 'Press "m" to return to the main menu.'
+    puts 'Press "q" to leave the casino.'
+    puts
   end
 
   def get_inputs
@@ -37,7 +40,6 @@ class War
       puts "You have \$#{@player.wallet.amount}0 in your wallet.\n"
       @bet_input = gets.to_f
       deal
-      war_play
     else
       CheckInput.new(war_input, @player)
     end
@@ -57,13 +59,13 @@ class War
     puts "\nThe dealer gets: " + @dealer_deal.rank
     puts "\nYou get: " + @player_deal.rank
     if @player_val > @dealer_val
-      puts "You WIN!"
+      puts "\nYou WIN!".green
       war_win
     elsif @player_val < @dealer_val
-      puts "You lose."
+      puts "\nYou lose.".red
       war_lose
     elsif @player_val == @dealer_val
-      puts "You tied, no money lost or won."
+      puts "\nYou tied, no money lost or won."
     end
     get_inputs
   end

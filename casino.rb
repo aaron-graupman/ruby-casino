@@ -13,7 +13,7 @@ class Casino
   attr_accessor :player
 
   def initialize
-    puts 'Welcome to Ruby Casino'
+    puts 'Welcome to Ruby Casino'.purple
     @player = Player.new
   end
 
@@ -22,3 +22,4 @@ end
 player1 = Casino.new
 MainMenu.new(player1.player)
 #binding.pry
+ 

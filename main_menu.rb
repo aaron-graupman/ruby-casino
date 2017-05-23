@@ -1,3 +1,5 @@
+require_relative 'check_input'
+
 class MainMenu
 
   def initialize(player)
@@ -8,7 +10,9 @@ class MainMenu
       3: War
       4: Slots
       "
-    case gets.strip.to_i
+    input = gets.strip.to_i
+    CheckInput.new(input)
+    case input
     when 1
       puts "Going to Heads or Tails."
       HeadsTails.new(@player)

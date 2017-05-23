@@ -5,7 +5,7 @@ class Player
 
   def initialize
     puts 'What is your name?'
-    CheckInput.new(@name = gets.strip, nothing=nil)
+    CheckInput.new(@name = gets.strip)
     puts 'What is your age?'
     @age = gets.strip.to_i
     puts 'How much money are you playing with?'
@@ -15,8 +15,11 @@ class Player
 
   def check_wallet
     if @wallet.amount <= 0.0
-      puts "Sorry you are out of money, please to get a 2nd mortgage."
+      puts "Sorry you are out of money, thank you come again."
       exit
+    else
+      puts "You have \$" + @wallet.amount.to_s + "0"
+
     end
   end
 
