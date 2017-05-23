@@ -1,8 +1,10 @@
 require 'pry'
+require_relative 'main_menu'
+require_relative 'player'
 
 class CheckInput
 
-  def initialize(inp)
+  def initialize(inp, player)
     begin
       inp = inp.downcase
     rescue
@@ -17,10 +19,10 @@ class CheckInput
       puts 'Quitting'
       exit
     when 'menu', 'm'
-      #casino.menu
+      MainMenu.new(player)
     when 'switch', 's'
     when 'wallet', 'w'
-      #casino.player.wallet.amount
+      @player.check_wallet
 
     end
   end

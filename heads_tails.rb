@@ -20,7 +20,7 @@ class HeadsTails
         @ctb_input = gets.to_f
         coin_toss
       else
-        CheckInput.new(player, ctm_input)
+        CheckInput.new(ctm_input, @player)
       end
     end
   end

@@ -1,6 +1,6 @@
 require "pry"
 
-class RoulletteSpin
+class RouletteSpin
   attr_accessor :spin, :color
   def initialize
    spin

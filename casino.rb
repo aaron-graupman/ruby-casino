@@ -5,8 +5,9 @@ require_relative 'player'
 require_relative 'check_input'
 require_relative 'heads_tails'
 require_relative 'war'
-require_relative 'routlette'
+#require_relative 'roulette'
 require_relative 'slots'
+require_relative 'main_menu'
 
 class Casino
   attr_accessor :player
@@ -16,39 +17,8 @@ class Casino
     @player = Player.new
   end
 
-  def main_menu
-    puts "What would you like to do?
-      1: Heads and Tails
-      2: Roullette
-      3: War
-      4: Slotss
-      "
-    case gets.strip.to_i
-    when 1
-      puts "Going to Heads or Tails."
-      HeadsTails.new(@player)
-    when 2
-      puts 'Going to Roulette.'
-      Roullette.new(@player)
-    when 3
-      puts 'Going to War.'
-      War.new(@player)
-    when 4
-      puts 'Going to Slots.'
-      Slots.new(@player)
-    end
-  end
-
-
-  def check_wallet
-    if @wallet.amount <= 0.0
-      puts "Sorry you are out of money, please to get a 2nd mortgage."
-      exit
-    end
-  end
-
 end
 
 player1 = Casino.new
-player1.main_menu
+MainMenu.new(player1.player)
 #binding.pry

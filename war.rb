@@ -39,7 +39,7 @@ class War
       deal
       war_play
     else
-      CheckInput.new(war_input)
+      CheckInput.new(war_input, @player)
     end
   end
 

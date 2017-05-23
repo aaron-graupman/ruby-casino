@@ -19,7 +19,7 @@ class Slots
       when 'p'
         play_slot
       else
-        CheckInput.new(player, sm_input)
+        CheckInput.new(sm_input, player)
       end
     end
   end
@@ -117,6 +117,6 @@ def play_slot
        @player.wallet.amount -= 1.0 #if no winning results are spun, bet deducted from wallet
       puts "\nYou lose! Go get a real job you bum."
     end
-  #end #end case
+  end #end case
  end
 end
