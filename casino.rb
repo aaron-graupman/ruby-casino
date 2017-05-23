@@ -50,5 +50,5 @@ class Casino
 end
 
 player1 = Casino.new
-player1.player.main_menu
+player1.main_menu
 #binding.pry
