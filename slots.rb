@@ -36,44 +36,44 @@ class Slots
 def play_slot
 
   #determines string output based on random integer value assigned to each string instance
-  if @spin_1 == 1 + rand(4)
+  if @spin_1 > 0 && @spin_1 <= 5
     result_1 = 'Cherry'
-  elsif @spin_1 == 6 + rand(16)
+  elsif @spin_1 > 5 && @spin_1 <= 22
     result_1 = 'Bar'
-  elsif @spin_1 == 23 + rand(12)
+  elsif @spin_1 > 22 && @spin_1 <= 35
     result_1 = 'Double Bar'
-  elsif @spin_1 == 36 + rand(10)
+  elsif @spin_1 > 35 && @spin_1 <= 46
     result_1 = 'Triple Bar'
-  elsif @spin_1 == 47 + rand(7)
+  elsif @spin_1 > 46 && @spin_1 <= 54
     result_1 = 'Red 7'
   elsif @spin_1 == 55 || @spin_1 == 56
     result_1 = 'JACKPOT'
   end
 
 
-  if @spin_2 <= 1 + rand(4)
+  if @spin_2 > 0 && @spin_2 <= 5
     result_2 = 'Cherry'
-  elsif @spin_2 > 6 && @spin_2 <= 6 + rand(16)
+  elsif @spin_2 > 5 && @spin_2 <= 22
     result_2 = 'Bar'
-  elsif @spin_2 == 23 + rand(12)
+  elsif @spin_2 > 22 && @spin_2 <= 35
     result_2 = 'Double Bar'
-  elsif @spin_2 == 36 + rand(10)
+  elsif @spin_2 > 35 && @spin_2 <= 46
     result_2 = 'Triple Bar'
-  elsif @spin_2 == 47 + rand(7)
+  elsif @spin_2 > 46 && @spin_2 <= 54
     result_2 = 'Red 7'
   elsif @spin_2 == 55 || @spin_2 == 56
     result_2 = 'JACKPOT'
   end
 
-  if @spin_3 == 1 + rand(4)
+  if @spin_3 > 0 && @spin_3 <= 5
     result_3 = 'Cherry'
-  elsif @spin_3 == 6 + rand(16)
+  elsif @spin_3 > 5 && @spin_3 <= 22
     result_3 = 'Bar'
-  elsif @spin_3 == 23 + rand(12)
+  elsif @spin_3 > 22 && @spin_3 <= 35
     result_3 = 'Double Bar'
-  elsif @spin_3 == 36 + rand(10)
+  elsif @spin_3 > 35 && @spin_3 <= 46
     result_3 = 'Triple Bar'
-  elsif @spin_3 == 47 + rand(7)
+  elsif @spin_3 > 46 && @spin_3 <= 54
     result_3 = 'Red 7'
   elsif @spin_3 == 55 || @spin_3 == 56
     result_3 = 'JACKPOT'
@@ -89,10 +89,6 @@ def play_slot
   sleep 2
   puts result_3 "\n"
 
-
-    if result_2 == result_1 || result_2 == result_3 #if spin 2 is the same as spins 1 or 3, pays out
-      then @player.wallet.amount += 2.0
-  #case calc_earnings
     if result_2 == result_1 || result_2 == result_3 #if spin 2 is the same as spins 1 or 3, pays out
        @player.wallet.amount += 2.0
       puts "\nYou won $2!"
