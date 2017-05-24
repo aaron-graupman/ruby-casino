@@ -26,7 +26,6 @@ class Slots
   def slot_menu
     puts "\nPress \"p\" to play for $1."
     puts 'Press "w" to view your wallet.'
-    puts 'Press "s" to switch profiles.'
     puts 'Press "m" to return to the main menu.'
     puts 'Press "q" to leave the casino.'
     puts
@@ -39,7 +38,7 @@ class Slots
 
     #determines string output based on random integer value assigned to each string instance
     if @spin_1 > 0 && @spin_1 <= 5
-      @result_1 = 'Cherry'
+      @result_1 = 'Cherry'.red
     elsif @spin_1 > 5 && @spin_1 <= 22
       @result_1 = 'Bar'
     elsif @spin_1 > 22 && @spin_1 <= 35
@@ -47,14 +46,14 @@ class Slots
     elsif @spin_1 > 35 && @spin_1 <= 46
       @result_1 = 'Triple Bar'
     elsif @spin_1 > 46 && @spin_1 <= 54
-      @result_1 = 'Red 7'
+      @result_1 = 'Red 7'.red
     elsif @spin_1 == 55 || @spin_1 == 56
-      @result_1 = 'JACKPOT'
+      @result_1 = 'JACKPOT'.yellow
     end
 
 
     if @spin_2 > 0 && @spin_2 <= 5
-      @result_2 = 'Cherry'
+      @result_2 = 'Cherry'.red
     elsif @spin_2 > 5 && @spin_2 <= 22
       @result_2 = 'Bar'
     elsif @spin_2 > 22 && @spin_2 <= 35
@@ -62,13 +61,13 @@ class Slots
     elsif @spin_2 > 35 && @spin_2 <= 46
       @result_2 = 'Triple Bar'
     elsif @spin_2 > 46 && @spin_2 <= 54
-      @result_2 = 'Red 7'
+      @result_2 = 'Red 7'.red
     elsif @spin_2 == 55 || @spin_2 == 56
-      @result_2 = 'JACKPOT'
+      @result_2 = 'JACKPOT'.yellow
     end
 
     if @spin_3 > 0 && @spin_3 <= 5
-      @result_3 = 'Cherry'
+      @result_3 = 'Cherry'.red
     elsif @spin_3 > 5 && @spin_3 <= 22
       @result_3 = 'Bar'
     elsif @spin_3 > 22 && @spin_3 <= 35
@@ -76,9 +75,9 @@ class Slots
     elsif @spin_3 > 35 && @spin_3 <= 46
       @result_3 = 'Triple Bar'
     elsif @spin_3 > 46 && @spin_3 <= 54
-      @result_3 = 'Red 7'
+      @result_3 = 'Red 7'.red
     elsif @spin_3 == 55 || @spin_3 == 56
-      @result_3 = 'JACKPOT'
+      @result_3 = 'JACKPOT'.yellow
 
     end
      #binding.pry
@@ -94,28 +93,28 @@ class Slots
     #if all three spins are any combo of any bar results, pays out
     if @result_1 == 'Bar' && @result_2 == 'Bar' && @result_3 == 'Bar'
       @player.wallet.amount += 4.0
-      puts "\nYou won $4!"
+      puts "\nYou won $4!".green
     elsif @result_1 == 'Double Bar' && @result_2 == 'Double Bar' && @result_3 == 'Double Bar'
       @player.wallet.amount += 4.0
-      puts "\nYou won $4!"
+      puts "\nYou won $4!".green
     elsif @result_1 == 'Triple Bar' && @result_2 == 'Triple Bar' && @result_3 == 'Triple Bar'
       @player.wallet.amount += 4.0
-      puts "\nYou won $4!"
+      puts "\nYou won $4!".green
     elsif @result_1 == 'Red 7' && @result_2 == 'Red 7' && @result_3 == 'Red 7' #if all 3 results are red 7, pays out
       @player.wallet.amount += 20.0
-      puts "\nYou won $20!"
+      puts "\nYou won $20!".green
     elsif @result_1 == 'Cherry' && @result_2 == 'Cherry' && @result_3 == 'Cherry' #if all three results are cherry, pays out
       @player.wallet.amount += 35.0
-      puts "\nYou won $35!"
+      puts "\nYou won $35!".green
     elsif @result_1 == 'JACKPOT' && @result_2 == 'JACKPOT' && @result_3 == 'JACKPOT' #if all three results are jackpot, pays out
       @player.wallet.amount += 100.0
-      puts "\nJackpot! You won $100!"
+      puts "\nJackpot! You won $100!".yellow
     elsif @result_2 == @result_1 || @result_2 == @result_3 #if spin 2 is the same as spins 1 or 3, pays out
       @player.wallet.amount += 2.0
-      puts "\nYou won $2!"
+      puts "\nYou won $2!".green
     else
       @player.wallet.amount -= 1.0 #if no winning results are spun, bet deducted from wallet
-      puts "\nYou lose! Go get a real job you bum."
+      puts "\nYou lose! Go get a real job you bum.".red
     end
  end
 end

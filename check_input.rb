@@ -12,7 +12,7 @@ class CheckInput
 
     case inp.to_s
     when 'quit', 'q'
-      puts 'Quitting, thank you come again.'.cyan
+      puts 'Quitting, thank you come again.'.yellow
       exit
     when 'menu', 'm'
       MainMenu.new(player)
