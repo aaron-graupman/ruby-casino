@@ -17,8 +17,10 @@ class Dice
      puts
      case s7m_input
      when 'p'
-       puts "Place your bet.\n"
+       puts "Place your bet."
+       puts
        @sb_input = gets.to_f
+       puts
        bet_on
      else
        CheckInput.new(s7m_input, @player)
@@ -39,19 +41,36 @@ def bet_on
   puts 'Press 2 to bet on 6 and 8, pays 4 to 1.'
   puts "Press 3 to bet on 2 and 12, pays 18 to 1.\n"
   @bo_input = gets.to_i
+  puts
+  roll
 end
 
 def roll
-  @die1 = (1 + rand(5)
+  @die1 = 1 + rand(5)
   @die2 = 1 + rand(5)
 @roll = @die1 + @die2
+puts "Die 1: ", @die1
+puts " Die 2:", @die2
+puts
+puts "Sum of dice is ", @roll,
+puts
+  if @bo_input == 1 && @roll == 7
+    @player.wallet.amount += @sb_input * 7
+    puts 'You win!'
+    puts
+  elsif @bo_input == 2 && @roll == 6 || @roll == 8
+    @player.wallet.amount += @sb_input * 4
+    puts 'You win!'
+    puts
+  elsif @bo_input == 3 && @roll == 2 || @roll == 12
+    @player.wallet.amount += @sb_input * 18
+    puts 'You win!'
+    puts
+  else
+    @player.wallet.amount -= @sb_input
+    puts 'You lose! My horse bites you in the butt!'
+    puts
+  end
 end
 
-# def show_dice
-#  print "Die1: ", @die1, " Die2:", @die2
-# end
-#
-#  def show_sum
-#    print "Sum of dice is ", @roll, ".\n"
-#    end
 end
