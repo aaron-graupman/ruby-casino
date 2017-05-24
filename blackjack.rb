@@ -18,6 +18,7 @@ class BlackJack
       @player_deal.rate = 11
     end
     @player_arr << @player_deal
+    puts "deal"
   end
 
   def dealer_deal
@@ -72,7 +73,37 @@ class BlackJack
         @p_total << 10
       end
     end
-    puts @p_total
+
+    @player_arr.each do |x|
+      if x.rank == 'A' && total > 21
+        @p_total << 10
+      end
+    end
+
+    @d_total = 0
+    @dealer_arr.each do |x|
+      @d_total += x.rate.to_i
+      if x.rank == 'A' && total > 21
+        @d_total << 10
+      end
+    end
+
+    @dealer_arr.each do |x|
+      if x.rank == 'A' && total > 21
+        @d_total << 10
+      end
+    end
+
+    if @d_total > 21
+      puts "Dealer busts"
+    elsif @p_total > 21
+      puts "You bust"
+    elsif @d_total > @p_total
+      puts "Dealer wins"
+    elsif @p_total > @d_total
+      puts "You win"
+    end
+
   end
 
   def blackj_win
@@ -105,8 +136,13 @@ class BlackJack
     case gets.to_s
     when 'h'
       player_deal
-      @player_arr[3].rank.to_s
-    else
+      "Dealing..."
+      puts @player_arr[3].rank.to_s
+      # puts 'You now have'
+      # @player_arr.each do |x|
+      #
+      # end
+    when 's'
       blackj_call
     end
   end
