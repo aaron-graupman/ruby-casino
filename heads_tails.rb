@@ -18,6 +18,7 @@ class HeadsTails
       when 'p'
         puts "How much money would you like to bet (Ex. 5.50)?\n"
         @ctb_input = gets.to_f
+        @player.check_bet(@ctb_input, @player)
         coin_toss
       else
         CheckInput.new(ctm_input, @player)

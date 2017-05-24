@@ -18,7 +18,7 @@ class Slots
       when 'p'
         play_slot
       else
-        CheckInput.new(sm_input, player)
+        CheckInput.new(sm_input, @player)
       end
     end
   end
@@ -85,11 +85,11 @@ class Slots
   # shows spin results with delay using the sleep function
     puts "\nDetermining your results...\n"
     sleep 2
-    puts @result_1 + "\n"
+    print @result_1 + "   "
     sleep 2
-    puts @result_2 + "\n"
+    print @result_2 + "   "
     sleep 2
-    puts @result_3 + "\n"
+    print @result_3
     sleep 2
     #if all three spins are any combo of any bar results, pays out
     if @result_1 == 'Bar' && @result_2 == 'Bar' && @result_3 == 'Bar'

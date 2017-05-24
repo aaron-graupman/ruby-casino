@@ -39,6 +39,7 @@ class War
       puts "How much money would you like to bet (Ex. 4.50)?\n"
       puts "You have \$#{@player.wallet.amount}0 in your wallet.\n"
       @bet_input = gets.to_f
+      @player.check_bet(@bet_input, @player)
       deal
     else
       CheckInput.new(war_input, @player)
@@ -66,6 +67,7 @@ class War
       war_lose
     elsif @player_val == @dealer_val
       puts "\nYou tied, no money lost or won."
+      get_inputs
     end
     get_inputs
   end

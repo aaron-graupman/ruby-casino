@@ -48,9 +48,10 @@ class BlackJack
     puts
     case black_input
     when 'p'
-      puts "How much money would you like to bet (Ex. 4.50)?\n"
       puts "You have \$#{@player.wallet.amount}0 in your wallet.\n"
+      puts "How much money would you like to bet (Ex. 4.50)?\n"
       @bet_input = gets.to_f
+      @player.check_bet(@bet_input, @player)
       play_blackjack
     else
       CheckInput.new(black_input, @player)
@@ -62,13 +63,29 @@ class BlackJack
     @i_input = gets.to_s
   end
 
+  def blackj_call
+    puts "calling"
+    @p_total = 0
+    @player_arr.each do |x|
+      @p_total += x.rate.to_i
+      if x.rank == 'A' && total > 21
+        @p_total << 10
+      end
+    end
+    puts @p_total
+  end
+
   def blackj_win
     @player.wallet.amount += @bet_input
+    @player_arr = []
+    @dealer_arr = []
     get_inputs
   end
 
   def blackj_lose
     @player.wallet.amount -= @bet_input
+    @player_arr = []
+    @dealer_arr = []
     get_inputs
   end
 
@@ -78,12 +95,19 @@ class BlackJack
     puts "Dealers up-card is: " + @dealer_arr[1].rank.to_s
     player_deal
     player_deal
-    player_deal
     if @player_arr.count == 2
       puts "You have " +  @player_arr[0].rank.to_s + " and " + @player_arr[1].rank.to_s
     else
       puts "You have "
       @player_arr.each {|x| puts x.rank.to_s}
+    end
+    puts "Do you want to Hit(h) or Stay(s)"
+    case gets.to_s
+    when 'h'
+      player_deal
+      @player_arr[3].rank.to_s
+    else
+      blackj_call
     end
   end
 
