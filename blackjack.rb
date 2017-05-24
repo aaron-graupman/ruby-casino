@@ -2,22 +2,40 @@ class BlackJack
   def initialize(player)
     @deck = Deck.new
     @player = player
+    @player_arr = []
+    @dealer_arr = []
     puts "\nWelcome to BlackJack\n"
     get_inputs
   end
 
-  def deal
+  def player_deal
     @player_deal = @deck.cards[rand(52)]
-    @dealer_deal = @deck.cards[rand(52)]
-    @player_val = @player_deal.rate.to_i
-    @dealer_val = @dealer_deal.rate.to_i
-    play_blackjack
+
+    case @player_deal.rate.to_i
+    when 11, 12, 13
+      @player_deal.rate = 10
+    when
+      @player_deal.rate = 11
+    end
+    @player_arr << @player_deal
   end
 
-  def blackjack_menu
-    puts "\nPress \"p\" to play. A winning bet pays 1 to 1."
+  def dealer_deal
+    @dealer_deal = @deck.cards[rand(52)]
+
+    case @dealer_deal.rate.to_i
+    when 11, 12, 13
+      @dealer_deal.rate = 10
+    when 14
+      @dealer_deal.rate = 11
+    end
+
+    @dealer_arr << @dealer_deal
+  end
+
+  def black_menu
+    puts "\nPress \"p\" to play."
     puts 'Press "w" to view your wallet.'
-    puts 'Press "s" to switch profiles.'
     puts 'Press "m" to return to the main menu.'
     puts 'Press "q" to leave the casino.'
     puts
@@ -28,38 +46,45 @@ class BlackJack
     black_menu
     black_input = gets.strip.downcase
     puts
-    case war_input
+    case black_input
     when 'p'
       puts "How much money would you like to bet (Ex. 4.50)?\n"
       puts "You have \$#{@player.wallet.amount}0 in your wallet.\n"
       @bet_input = gets.to_f
-      deal
+      play_blackjack
     else
       CheckInput.new(black_input, @player)
     end
+  end
 
-    def blackj_win
-      @player.wallet.amount += @bet_input
-      get_inputs
-    end
+  def inplay_inputs
+    puts "Do you want to Hit(h) or Stay(s)"
+    @i_input = gets.to_s
+  end
 
-    def blackj_lose
-      @player.wallet.amount -= @bet_input
-      get_inputs
-    end
+  def blackj_win
+    @player.wallet.amount += @bet_input
+    get_inputs
+  end
 
-    def play_blackjack
-      puts "\nThe dealer gets: " + @dealer_deal.rank
-      puts "\nYou get: " + @player_deal.rank
-      if @player_val > @dealer_val
-        puts "\nYou WIN!".green
-        blackj_win
-      elsif @player_val < @dealer_val
-        puts "\nYou lose.".red
-        blackj_lose
-      elsif @player_val == @dealer_val
+  def blackj_lose
+    @player.wallet.amount -= @bet_input
+    get_inputs
+  end
 
-      end
-      get_inputs
+  def play_blackjack
+    dealer_deal
+    dealer_deal
+    puts "Dealers up-card is: " + @dealer_arr[1].rank.to_s
+    player_deal
+    player_deal
+    player_deal
+    if @player_arr.count == 2
+      puts "You have " +  @player_arr[0].rank.to_s + " and " + @player_arr[1].rank.to_s
+    else
+      puts "You have "
+      @player_arr.each {|x| puts x.rank.to_s}
     end
   end
+
+end

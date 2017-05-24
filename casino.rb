@@ -9,6 +9,7 @@ require_relative 'war'
 require_relative 'slots'
 require_relative 'main_menu'
 require_relative 'dice'
+require_relative 'blackjack'
 
 class Casino
   attr_accessor :player

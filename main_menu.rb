@@ -27,7 +27,7 @@ class MainMenu
       Slots.new(@player)
     when 5
       puts 'Going to Black Jack.'
-      Blackjack.new(@player)
+      BlackJack.new(@player)
     when 6
       puts 'Going to Se7en.'
       Dice.new(@player)

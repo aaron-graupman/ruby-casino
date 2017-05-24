@@ -16,7 +16,6 @@ class CheckInput
       exit
     when 'menu', 'm'
       MainMenu.new(player)
-    when 'switch', 's'
     when 'wallet', 'w'
       player.check_wallet
     end

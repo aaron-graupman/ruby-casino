@@ -8,6 +8,10 @@ class Player
     CheckInput.new(@name = gets.strip)
     puts 'What is your age?'
     @age = gets.strip.to_i
+    if @age < 18
+      puts "You are to young to gamble."
+      exit
+    end
     puts 'How much money are you playing with?'
     amount = gets.strip.to_f
     @wallet = Wallet.new(amount)
