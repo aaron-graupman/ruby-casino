@@ -42,12 +42,11 @@ def bet_on
   puts "Press 3 to bet on 2 and 12, pays 18 to 1.\n"
   @bo_input = gets.to_i
   puts
-  roll
+  roll_val
 end
 
+
 def roll
-  @die1 = 1 + rand(5)
-  @die2 = 1 + rand(5)
 @roll = @die1 + @die2
 puts "Die 1: ", @die1
 puts " Die 2:", @die2
@@ -71,6 +70,12 @@ puts
     puts 'You lose! My horse bites you in the butt!'
     puts
   end
+end
+
+def roll_val
+  @die1 = 1 + rand(5)
+  @die2 = 1 + rand(5)
+  roll
 end
 
 end
